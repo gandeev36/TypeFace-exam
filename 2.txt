@@ -1,0 +1,27 @@
+Soundex is a phonetic algorithm that can locate phrases with similar sounds. A Soundex search method takes a word as input, such as a person’s name, and outputs a character string that identifies a group of words that are roughly phonetically similar or sound approximately the same.
+Phonetic Hashing
+Phonetic hashing is a technique used to canonicalize words that have the same phonetic characteristics. As a result of phonetic hashing, each word is assigned a hash code based on its phoneme, which is the smallest unit of sound. 
+American Soundex Algorithm
+American Soundex Algorithm, which performs Phonetic Hashing on English language word, i.eit takes a word in English and generates its hash code.
+
+Step 1: Retain the initial letter
+This step is grounded upon the reasoning that in the English language, the first letter of any word determines its pronunciation and is imperative to the word’s comprehensibility. In this step, we retain the first letter of the word as it is in the hash code.
+
+Step 2: Encode the Consonants
+This step is based on phonetic studies in the English language. It tries to replace the consonants with the same phonetic characteristics with the same letter. The encoding is done as follows:
+b, f, p, v → 1 
+c, g, j, k, q, s, x, z → 2 
+d, t → 3 
+l → 4 
+m, n → 5
+r → 6 
+h, w, y → Not Coded
+
+Step 3: Drop the Vowels
+This step is done as vowels in English do not contribute much to the phonetic distinction of the word. Thus, all the vowels are directly dropped from the word.
+Step 4: Make the Code Length 4
+The last step is based upon the standard that hash codes must be of length 4. In order to make the code length four we do the following:
+If the length is less than 4, pad zeros in the end.
+If the length exceeds 4, truncate the hash code after position 4.
+Step 5: Pre process the whole dictionary using dynamic programming and store the list of words and their hash codes using above four steps.
+Step 6: Print the list of words which are having same hash code for given input word.
